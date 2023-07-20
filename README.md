@@ -37,5 +37,3 @@
 [LinkedIn](https://www.linkedin.com/in/stephanie-harris-5069aa224/)
 <br>
 [Email](mailto:st3phanie.harris@gmail.com)
-<br>
-[Twitter](https://twitter.com/HexleLich)
