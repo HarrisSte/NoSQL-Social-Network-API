@@ -75,6 +75,11 @@ const userController = {
       return res.status(500).json(err);
     }
   },
+
+  //Adding a friend
+  
+  //Deleting a friend
+  
 };
 
 module.exports = userController;
