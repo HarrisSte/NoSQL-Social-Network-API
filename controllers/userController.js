@@ -1,7 +1,7 @@
-const { ObjectId } = require('mongoose').Types;
+// const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
-module.exports = {
+const userController = {
   //Getting all users.
   async getUsers(req, res) {
     try {
@@ -20,15 +20,25 @@ module.exports = {
       const user = await User.findOne({ _id: req.params.userId })
         .populate({ path: 'thoughts', select: '__v' })
         .populate({ path: 'friends', select: '__v' });
-    } catch (err) {}
-  },
-  //Posting a new user.
-  async newUser(req, res) {
-    try {
-      const user = await User.create(req.body);
-      res.json(user);
+
+      if (!user) {
+        return res.status(404).json({ message: 'User not found!' });
+      }
+
+      return res.status(200).json(user);
     } catch (err) {
-      res.status(500).json.err;
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
+
+  //POST: Creating a new user.
+  async createUser(req, res) {
+    try {
+      const newUser = await User.create(req.body);
+      res.json(newUser);
+    } catch (err) {
+      res.status(500).json(err);
     }
   },
   //Updating a user.
@@ -66,3 +76,5 @@ module.exports = {
     }
   },
 };
+
+module.exports = userController;
