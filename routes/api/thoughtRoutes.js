@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
-const { Thought } = require('../../models/thought');
+const router = require('express').Router();
 
 //GET all thoughts
+
+module.exports = router;
