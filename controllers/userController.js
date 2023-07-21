@@ -35,4 +35,5 @@ module.exports = {
   //Updating a user.
 
   //Deleting a user.
+  //BONUS: Try to remove a user's associated thoughts when deleted.
 };
