@@ -33,6 +33,24 @@ module.exports = {
     }
   },
   //Updating a user.
+  async updateUser(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { __id: req.params.userId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+
+      if (!user) {
+        res
+          .status(404)
+          .json({ message: 'Oops, there is no user with this ID!' });
+      }
+      res.json(user);
+    } catch (error) {
+      res.status(500).json(err);
+    }
+  },
 
   //Deleting a user.
   //BONUS: Try to remove a user's associated thoughts when deleted.
