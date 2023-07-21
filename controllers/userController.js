@@ -15,7 +15,7 @@ module.exports = {
     }
   },
   //Getting a single user by their ID.
-  async getUserById(req, res) {
+  async getUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId })
         .populate({ path: 'thoughts', select: '__v' })
@@ -26,10 +26,9 @@ module.exports = {
   async newUser(req, res) {
     try {
       const user = await User.create(req.body);
-      return res.status(200).json(user);
+      res.json(user);
     } catch (err) {
-      console.log(err);
-      return res.status(500).json.err;
+      res.status(500).json.err;
     }
   },
   //Updating a user.
