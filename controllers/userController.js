@@ -54,4 +54,16 @@ module.exports = {
 
   //Deleting a user.
   //BONUS: Try to remove a user's associated thoughts when deleted.
+  async deleteUser(req, res) {
+    try {
+      const user = await User.findOneAndRemove({ _id: req.params.userId });
+
+      if (!user) {
+        return res.status(404).json({ message: 'Oops, no such user exists.' });
+      }
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
 };
