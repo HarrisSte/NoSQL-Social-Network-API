@@ -22,7 +22,7 @@ module.exports = {
         return res.status(404).json({ message: 'No thought with that ID' });
       }
       return res.status(200).json(thought);
-    } catch (error) {
+    } catch (err) {
       console.log(err);
       return res.status(500)(err);
     }
@@ -33,7 +33,7 @@ module.exports = {
     try {
       const newThought = await Thought.create(req.body);
       res.json(newThought);
-    } catch (error) {
+    } catch (err) {
       res.status(500).json(err);
     }
   },
@@ -52,7 +52,7 @@ module.exports = {
           .json({ message: 'Oops, there is no thought with this ID!' });
       }
       res.json(thought);
-    } catch (error) {
+    } catch (err) {
       res.status(500).json(err);
     }
   },
@@ -88,7 +88,7 @@ module.exports = {
           .json({ message: 'Oops, there is no thought with this ID!' });
       }
       res.json(reaction);
-    } catch (error) {
+    } catch (err) {
       res.status(500).json(err);
     }
   },

@@ -56,7 +56,7 @@ const userController = {
           .json({ message: 'Oops, there is no user with this ID!' });
       }
       res.json(user);
-    } catch (error) {
+    } catch (err) {
       res.status(500).json(err);
     }
   },
