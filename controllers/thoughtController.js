@@ -5,8 +5,9 @@ module.exports = {
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
-      res.json(thoughts);
+      return res.status(200).json(thoughts);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
@@ -17,10 +18,62 @@ module.exports = {
       const thought = await Thought.findOne({
         _id: req.params.thoughtId,
       }).select('__v');
-
       if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
       }
-    } catch (error) {}
+      return res.status(200).json(thought);
+    } catch (error) {
+      console.log(err);
+      return res.status(500)(err);
+    }
   },
+
+  //Create thought
+  async createThought(req, res) {
+    try {
+      const newThought = await Thought.create(req.body);
+      res.json(newThought);
+    } catch (error) {
+      res.status(500).json(err);
+    }
+  },
+  //Update thought
+  async updateThought(req, res) {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+
+      if (!thought) {
+        res
+          .status(404)
+          .json({ message: 'Oops, there is no thought with this ID!' });
+      }
+      res.json(thought);
+    } catch (error) {
+      res.status(500).json(err);
+    }
+  },
+  //Delete thought
+  async deleteThought(req, res) {
+    try {
+      const thought = await Thought.findOneAndRemove({
+        _id: req.params.userId,
+      });
+
+      if (!thought) {
+        return res
+          .status(404)
+          .json({ message: 'Oops, no such thought exists.' });
+      }
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
+  //Add reaction
+  
+  //Delete reaction
 };
