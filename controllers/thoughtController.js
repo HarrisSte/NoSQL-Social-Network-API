@@ -74,6 +74,39 @@ module.exports = {
     }
   },
   //Add reaction
-  
+  async addReaction(req, res) {
+    try {
+      const reaction = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+
+      if (!reaction) {
+        res
+          .status(404)
+          .json({ message: 'Oops, there is no thought with this ID!' });
+      }
+      res.json(reaction);
+    } catch (error) {
+      res.status(500).json(err);
+    }
+  },
   //Delete reaction
+  async deleteReaction(req, res) {
+    try {
+      const reaction = await Thought.findOneAndRemove({
+        _id: req.params.userId,
+      });
+
+      if (!reaction) {
+        return res
+          .status(404)
+          .json({ message: 'Oops, no such thought exists.' });
+      }
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
 };
