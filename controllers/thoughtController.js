@@ -47,11 +47,12 @@ module.exports = {
       );
 
       if (!thought) {
-        res
+        return res
           .status(404)
-          .json({ message: 'Oops, there is no thought with this ID!' });
+          .json({ message: 'No thought found with the specified ID' });
       }
-      return res.json(thought);
+
+      return res.status(200).json(thought);
     } catch (err) {
       return res.status(500).json(err);
     }
@@ -96,14 +97,14 @@ module.exports = {
   //Delete reaction
   async deleteReaction(req, res) {
     try {
-      const reaction = await Thought.findOneAndRemove({
-        _id: req.params.reactionId,
-      });
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $pull: { reactions: { _id: req.params.reactionId } } },
+        { new: true }
+      );
 
-      if (!reaction) {
-        return res
-          .status(404)
-          .json({ message: 'Oops, no such reaction exists.' });
+      if (!thought) {
+        return res.status(404).json({ message: 'No thought with that ID' });
       }
       return res.status(200).json({ message: 'Reaction deleted successfully' });
     } catch (err) {
