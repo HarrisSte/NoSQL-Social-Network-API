@@ -2,7 +2,6 @@
 # Social Network API
 
 ## Description
-
 The Social Network Web Application is a server-based platform that allows users to connect, share thoughts, and interact with each other. It is built using a social network API and utilizes MongoDB as the underlying database managed through Mongoose models. The application provides a set of API endpoints that enable users to perform various actions like creating, updating, and deleting users, thoughts, reactions to thoughts, and managing friends on a user's friend list.
 <br>
 <br>
@@ -31,7 +30,6 @@ The Social Network Web Application is a server-based platform that allows users 
 - Overall, the Social Network Web Application is designed to offer a seamless and interactive platform for users to connect, share thoughts, and engage with others in a meaningful way. By providing a comprehensive set of API endpoints, it enables users to perform a wide range of actions, making the social networking experience enjoyable and enriching.
 
 ## Table of Contents
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demonstration](#demonstration)
