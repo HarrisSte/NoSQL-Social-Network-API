@@ -28,10 +28,26 @@ module.exports = {
     }
   },
 
-  //Create thought
+  // Create thought
   async createThought(req, res) {
     try {
       const newThought = await Thought.create(req.body);
+
+      const userId = req.body.userId;
+      if (userId) {
+        const user = await User.findByIdAndUpdate(
+          userId,
+          { $push: { thoughts: newThought._id } },
+          { new: true }
+        );
+
+        if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+      } else {
+        return res.status(400).json({ message: 'UserId is required' });
+      }
+
       res.json(newThought);
     } catch (err) {
       res.status(500).json(err);
