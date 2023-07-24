@@ -104,7 +104,7 @@ const userController = {
     try {
       const friend = await User.findOneAndDelete(
         { _id: req.params.userId },
-        { $addToSet: { friends: req.params.friendId } },
+        { $pull: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
