@@ -66,16 +66,24 @@ module.exports = {
   },
 
   //Delete user by their ID.
-  //BONUS: Try to remove a user's associated thoughts when deleted.
+  //BONUS: Remove a user's associated thoughts when deleted.
   async deleteUser(req, res) {
     try {
-      const user = await User.findOneAndRemove({ _id: req.params.userId });
+      const user = await User.findOne({ _id: req.params.userId });
 
       if (!user) {
         return res.status(404).json({ message: 'Oops, no such user exists.' });
       }
+
+      // Delete the user's associated thoughts
       await Thought.deleteMany({ _id: { $in: user.thoughts } });
-      return res.status(200).json({ message: 'User deleted successfully.' });
+
+      // Delete the user
+      await User.deleteOne({ _id: req.params.userId });
+
+      return res.status(200).json({
+        message: 'User and associated thoughts deleted successfully.',
+      });
     } catch (err) {
       console.log(err);
       return res.status(500).json({ error: err.message });
