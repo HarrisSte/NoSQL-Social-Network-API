@@ -43,16 +43,8 @@ const userSchema = new Schema(
 
 //Virtual property to increase friend count as they are added.
 userSchema.virtual('friendCount').applyGetters(function () {
-  // const user = User.findById(user).populate('friends');
   return this.friends.length;
 });
-
-// userSchema.virtual('friendCount', {
-//   ref: 'User',
-//   localField: '_id',
-//   foreignField: 'friends',
-//   count: true,
-// });
 
 const User = model('User', userSchema);
 
