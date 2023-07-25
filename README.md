@@ -8,7 +8,7 @@ The Social Network Web Application is a server-based platform that allows users 
 **Key Features:**
 <br>
 - **Server Startup & Database Sync:**
-	- When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
+- When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
 <br>
 <br>
 - **GET Routes for Users & Thoughts:** 
