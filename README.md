@@ -73,9 +73,8 @@ For ease of use while working within the server:
 
   
 ## Demonstration
-
-  
-  
+[Social-Network-API-Demo.webm](https://github.com/HarrisSte/Social-Network-API/assets/126029841/63e5d5f6-94d3-40bc-9ec0-ed51d3e3b13c)
+ 
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
