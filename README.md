@@ -6,8 +6,8 @@ The Social Network Web Application is a server-based platform that allows users 
 <br>
 <br>
 **Key Features:**
-<br>
-- **Server Startup & Database Sync:**When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
+
+- **Server Startup & Database Sync:** When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
 <br>
 <br>
 - **GET Routes for Users & Thoughts:** The application supports API GET routes that allow users to retrieve data related to users and thoughts. When accessed via tools like Insomnia, the data is displayed in formatted JSON, making it easy for users to consume and understand.
