@@ -1,5 +1,5 @@
+//Import required modules from the 'mongoose' library.
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
 
 //Schema to create User model.
 const userSchema = new Schema(
@@ -46,6 +46,8 @@ userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
+//Creating 'User' model using the userSchema.
 const User = model('User', userSchema);
 
+//Exporting the 'User' model to be used within the application.
 module.exports = User;

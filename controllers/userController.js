@@ -1,8 +1,8 @@
-// const { ObjectId } = require('mongoose').Types;
+//Import the required models.
 const { User, Thought } = require('../models');
 
-const userController = {
-  //Getting all users.
+module.exports = {
+  //Get ALL users.
   async getUsers(req, res) {
     try {
       const users = await User.find()
@@ -16,7 +16,7 @@ const userController = {
       return res.status(500).json(err);
     }
   },
-  //Getting a single user by their ID.
+  //Get SINGLE user by their ID.
   async getUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId })
@@ -36,7 +36,7 @@ const userController = {
     }
   },
 
-  //POST: Creating a new user.
+  //CREATE a new user.
   async createUser(req, res) {
     try {
       const newUser = await User.create(req.body);
@@ -45,7 +45,7 @@ const userController = {
       res.status(500).json({ message: 'Unable to create new user.' });
     }
   },
-  //Updating a user.
+  //Update user by their ID.
   async updateUser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
@@ -65,7 +65,7 @@ const userController = {
     }
   },
 
-  //Deleting a user.
+  //Delete user by their ID.
   //BONUS: Try to remove a user's associated thoughts when deleted.
   async deleteUser(req, res) {
     try {
@@ -82,7 +82,7 @@ const userController = {
     }
   },
 
-  //Adding a friend
+  //Add friend to a user.
   async addFriend(req, res) {
     try {
       const friend = await User.findOneAndUpdate(
@@ -103,7 +103,7 @@ const userController = {
       return res.status(500).json(err);
     }
   },
-  //Deleting a friend
+  //Delete friend from user.
   async deleteFriend(req, res) {
     try {
       const friend = await User.findOneAndUpdate(
@@ -123,5 +123,3 @@ const userController = {
     }
   },
 };
-
-module.exports = userController;

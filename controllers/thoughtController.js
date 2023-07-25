@@ -1,7 +1,8 @@
+//Import the required models.
 const { User, Thought } = require('../models');
 
 module.exports = {
-  //Get all thoughts
+  //Get ALL thoughts.
   async getThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
@@ -12,7 +13,7 @@ module.exports = {
     }
   },
 
-  //Get a thought
+  //Get SINGLE thought by its ID.
   async getSingleThought(req, res) {
     try {
       const thought = await Thought.findOne({ _id: req.params.thoughtId });
@@ -28,7 +29,7 @@ module.exports = {
     }
   },
 
-  // Create thought
+  // CREATE a new thought.
   async createThought(req, res) {
     try {
       const newThought = await Thought.create(req.body);
@@ -53,7 +54,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  //Update thought
+  //Update thought by its ID.
   async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
@@ -75,7 +76,7 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  //Delete thought
+  //Delete a thought by its ID.
   async deleteThought(req, res) {
     try {
       const thought = await Thought.findOneAndRemove({
@@ -93,7 +94,7 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  //Add reaction
+  //Add reaction to a thought.
   async addReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
@@ -103,7 +104,9 @@ module.exports = {
       );
 
       if (!thought) {
-        return res.status(404).json({ message: 'Oops, there is no thought with that ID' });
+        return res
+          .status(404)
+          .json({ message: 'Oops, there is no thought with that ID' });
       }
 
       return res
@@ -114,7 +117,7 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  //Delete reaction
+  //Delete a reaction from a thought.
   async deleteReaction(req, res) {
     try {
       const thought = await Thought.findOneAndRemove(

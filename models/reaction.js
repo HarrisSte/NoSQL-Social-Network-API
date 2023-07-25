@@ -1,3 +1,4 @@
+//Import required models from the 'mongoose' library.
 const { Schema, Types } = require('mongoose');
 
 //Schema to create Reaction model.
@@ -29,4 +30,5 @@ const reactionSchema = new Schema(
   }
 );
 
+//Export the 'reactionSchema' so it can be used.
 module.exports = reactionSchema;

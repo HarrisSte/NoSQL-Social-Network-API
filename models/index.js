@@ -1,5 +1,6 @@
+//Import models.
 const User = require('./User');
 const Thought = require('./Thought');
-// const Reaction = require('./Reaction');
 
+//Export models for application to work.
 module.exports = { User, Thought };

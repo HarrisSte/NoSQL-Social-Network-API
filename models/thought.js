@@ -1,3 +1,4 @@
+//Import required modules from the 'mongoose' library.
 const { Schema, model } = require('mongoose');
 const reactionSchema = require('./Reaction');
 
@@ -34,6 +35,8 @@ thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 
+//Create thought model using the 'thoughtSchema'
 const Thought = model('Thought', thoughtSchema);
 
+//Export 'Thought' model so it can be used in application.
 module.exports = Thought;
