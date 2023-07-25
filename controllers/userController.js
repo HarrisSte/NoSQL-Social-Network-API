@@ -90,10 +90,12 @@ const userController = {
       );
 
       if (!friend) {
-        return res.status(404).json({ message: 'There is no user with that ID.' });
+        return res
+          .status(404)
+          .json({ message: 'There is no user with that ID.' });
       }
 
-      return res.status(200).json({ message: 'Friend added successfully!'});
+      return res.status(200).json({ message: 'Friend added successfully!' });
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
@@ -102,20 +104,20 @@ const userController = {
   //Deleting a friend
   async deleteFriend(req, res) {
     try {
-      const friend = await User.findOneAndDelete(
+      const friend = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
       if (!friend) {
-        return res
-          .status(404)
-          .json({ message: 'Double check you have the correct information.' });
+        return res.status(404).json({ message: 'Check user and friend ID' });
       }
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json(error);
+
+      return res.status(200).json({ message: 'Friend successfully deleted!'});
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
     }
   },
 };

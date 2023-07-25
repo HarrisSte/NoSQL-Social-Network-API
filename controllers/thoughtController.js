@@ -15,12 +15,12 @@ module.exports = {
   //Get a thought
   async getSingleThought(req, res) {
     try {
-      const thought = await Thought.findOne({
-        _id: req.params.thoughtId,
-      }).select('__v');
+      const thought = await Thought.findOne({ _id: req.params.thoughtId });
+
       if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
       }
+
       return res.status(200).json(thought);
     } catch (err) {
       console.log(err);
@@ -85,7 +85,7 @@ module.exports = {
           .status(404)
           .json({ message: 'Oops, no such thought exists.' });
       }
-      return res.status(200).json({ message: 'Thought deleted successfully' });
+      return res.status(200).json({ message: 'Thought successfully deleted!' });
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
