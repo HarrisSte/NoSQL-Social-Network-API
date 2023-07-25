@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-// const thoughtSchema = require('./Thought');
+const thoughtSchema = require('./Thought');
 
 //Schema to create User model.
 const userSchema = new Schema(
@@ -35,14 +35,14 @@ const userSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
-      getters: true,
+      // getters: true,
     },
     id: false,
   }
 );
 
 //Virtual property to increase friend count as they are added.
-userSchema.virtual('friendCount').applyGetters(function () {
+userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 

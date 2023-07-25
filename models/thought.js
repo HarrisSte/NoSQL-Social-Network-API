@@ -23,14 +23,14 @@ const thoughtSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
-      getters: true,
+      // getters: true,
     },
     id: false,
   }
 );
 
 //Virtual property to increase reaction count as they are added.
-thoughtSchema.virtual('reactionCount').applyGetters(function () {
+thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
 
