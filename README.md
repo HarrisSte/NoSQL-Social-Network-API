@@ -7,30 +7,26 @@ The Social Network Web Application is a server-based platform that allows users 
 <br>
 **Key Features:**
 <br>
-- **Server Startup & Database Sync:**
-- When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
+- **Server Startup & Database Sync:**When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
 <br>
 <br>
-- **GET Routes for Users & Thoughts:** 
-	- The application supports API GET routes that allow users to retrieve data related to users and thoughts. When accessed via tools like Insomnia, the data is displayed in formatted JSON, making it easy for users to consume and understand.
+- **GET Routes for Users & Thoughts:** The application supports API GET routes that allow users to retrieve data related to users and thoughts. When accessed via tools like Insomnia, the data is displayed in formatted JSON, making it easy for users to consume and understand.
 <br>
 <br>
-- **CRUD Operations on Users & Thoughts:** 
-	- The application supports API endpoints for POST, PUT, and DELETE operations on users and thoughts. Users can create new users and thoughts, update existing ones, and delete unwanted entries from the database.
+- **CRUD Operations on Users & Thoughts:** The application supports API endpoints for POST, PUT, and DELETE operations on users and thoughts. Users can create new users and thoughts, update existing ones, and delete unwanted entries from the database.
 <br>
 <br>
-- **Reactions to Thoughts:** 
-	- Users can also interact with thoughts by adding reactions to them. The application supports API endpoints for creating and deleting reactions, allowing users to express their feelings or opinions about specific thoughts.
+- **Reactions to Thoughts:** Users can also interact with thoughts by adding reactions to them. The application supports API endpoints for creating and deleting reactions, allowing users to express their feelings or opinions about specific thoughts.
 <br>
 <br>
-- **Manage Friends List:** 
-	- Users can build their social circle by adding or removing friends. The application provides API endpoints for adding and removing friends from a user's friend list, enhancing the social experience and connectivity.
+- **Manage Friends List:** Users can build their social circle by adding or removing friends. The application provides API endpoints for adding and removing friends from a user's friend list, enhancing the social experience and connectivity.
 <br>
 <br>
-- Overall, the Social Network Web Application is designed to offer a seamless and interactive platform for users to connect, share thoughts, and engage with others in a meaningful way. By providing a comprehensive set of API endpoints, it enables users to perform a wide range of actions, making the social networking experience enjoyable and enriching.
+Overall, the Social Network Web Application is designed to offer a seamless and interactive platform for users to connect, share thoughts, and engage with others in a meaningful way. By providing a comprehensive set of API endpoints, it enables users to perform a wide range of actions, making the social networking experience enjoyable and enriching.
 
 ## Table of Contents
 - [Installation](#installation)
+- [API Endpoints](#api-endpoints)
 - [Usage](#usage)
 - [Demonstration](#demonstration)
 - [License](#license)
@@ -49,6 +45,24 @@ For ease of use while working within the server:
 1. [Nodemon](https://www.npmjs.com/package/nodemon) `npm i nodemon`
 	- This will automatically reload your server when you make changes.
 
+## API Endpoints
+
+**Users & Friends**
+- GET all users: api/users
+- GET single user: api/users/:userID
+- POST new user: api/users
+- PUT user update: api/users/:userID
+- DELETE user: api/users/:userID
+	- NOTE: This will also remove the associated thoughts posted by the user. 
+
+**Thoughts & Reactions**
+- GET all thoughts: api/thoughts
+- GET single thought: api/thoughts/:thoughtID
+- POST new thought: api/thoughts
+- PUT user update: api/thoughts/:thoughtsID
+- DELETE thought: api/thoughts/:thoughtID
+- POST reaction: api/:thoughtID/reactions
+- DELETE reaction: api/:thoughtID/reactions/:reactionID
 ## Usage
 - Install packages:
     - Express.js > `npm i express`
