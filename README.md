@@ -33,7 +33,6 @@ Overall, the Social Network Web Application is designed to offer a seamless and 
 - [Contributors](#contributors)
 - [Contact](#contact)
 
-  
 
 ## Installation
 You will need to install the following packages for this application:
@@ -41,7 +40,7 @@ You will need to install the following packages for this application:
 1. [Express.js](https://www.npmjs.com/package/express) `npm i express`
 2. [Mongoose](https://www.npmjs.com/package/mongoose) `npm i mongoose`
 
-For ease of use while working within the server:
+Once you've installed the necessary packages, you can run **nodemon** for ease of use while working within the server. This will automatically restart your server should you make changes:
 1. [Nodemon](https://www.npmjs.com/package/nodemon) `npm i nodemon`
 	- This will automatically reload your server when you make changes.
 
@@ -53,7 +52,9 @@ For ease of use while working within the server:
 - POST new user: api/users
 - PUT user update: api/users/:userID
 - DELETE user: api/users/:userID
-	- NOTE: This will also remove the associated thoughts posted by the user. 
+	- NOTE: This will also remove the associated thoughts posted by the user.
+- POST new friend: api/users/:userID/friends/:friendID
+- DELETE friend: api/users/:userID/friends/:friendID 
 
 **Thoughts & Reactions**
 - GET all thoughts: api/thoughts
@@ -64,14 +65,16 @@ For ease of use while working within the server:
 - POST reaction: api/:thoughtID/reactions
 - DELETE reaction: api/:thoughtID/reactions/:reactionID
 ## Usage
+Before using this application, you need to make sure that you install the necessary packages.
+<br>
 - Install packages:
     - Express.js > `npm i express`
     - Mongoose > `npm i mongoose`
 
 - devDependencies:
 	- Nodemon > `npm i nodemon`
+	- This will get your server up and running.
 
-  
 ## Demonstration
 [Social-Network-API-Demo.webm](https://github.com/HarrisSte/Social-Network-API/assets/126029841/63e5d5f6-94d3-40bc-9ec0-ed51d3e3b13c)
  
@@ -80,9 +83,8 @@ For ease of use while working within the server:
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributors
+A multitude of sources were referenced during the development of this application. These sources included accessing articles provided through the bootcamp itself; these were primarily supplied via Lisa. A great deal of information and guidance came through reading documentation for MongoDB and Mongoose. Additional articles I read through were sourced by Medium, StackOverflow, and W3Schools. Additional support was provided in office hours for bug fixes; as well as garnering the assistance from my classmates and colleagues.
 
-  
-  
 
 ## Contact
 [GitHub](https://github.com/HarrisSte)
