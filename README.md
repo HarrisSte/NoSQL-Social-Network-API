@@ -44,19 +44,22 @@ You will need to install the following packages for this application:
 <br>
 1. [Express.js](https://www.npmjs.com/package/express) `npm i express`
 2. [Mongoose](https://www.npmjs.com/package/mongoose) `npm i mongoose`
-3. JAVASCRIPT DATE LIBRARY 
+
+For ease of use while working within the server:
+1. [Nodemon](https://www.npmjs.com/package/nodemon) `npm i nodemon`
+	- This will automatically reload your server when you make changes.
 
 ## Usage
 - Install packages:
     - Express.js > `npm i express`
     - Mongoose > `npm i mongoose`
-    - JAVASCRIPT DATE LIBRARY > ``
 
-- 
+- devDependencies:
+	- Nodemon > `npm i nodemon`
+
   
 ## Demonstration
 
-  
   
   
 
