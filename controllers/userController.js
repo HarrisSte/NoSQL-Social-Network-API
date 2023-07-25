@@ -57,7 +57,7 @@ const userController = {
           .status(404)
           .json({ message: 'Oops, there is no user with this ID!' });
       }
-      res.json(user);
+      res.json({ message: 'User has been updated successfully!' });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -114,7 +114,7 @@ const userController = {
         return res.status(404).json({ message: 'Check user and friend ID' });
       }
 
-      return res.status(200).json({ message: 'Friend successfully deleted!'});
+      return res.status(200).json({ message: 'Friend successfully deleted!' });
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
