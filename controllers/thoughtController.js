@@ -48,7 +48,7 @@ module.exports = {
         return res.status(400).json({ message: 'UserId is required' });
       }
 
-      res.json(newThought);
+      res.json({ message: 'New thought created successfully!' });
     } catch (err) {
       res.status(500).json(err);
     }
