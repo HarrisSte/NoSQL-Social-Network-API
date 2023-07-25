@@ -9,19 +9,19 @@ The Social Network Web Application is a server-based platform that allows users 
 
 - **Server Startup & Database Sync:** When the application is started, it starts the server and ensures synchronization of Mongoose models with the MongoDB database.
 <br>
-<br>
+
 - **GET Routes for Users & Thoughts:** The application supports API GET routes that allow users to retrieve data related to users and thoughts. When accessed via tools like Insomnia, the data is displayed in formatted JSON, making it easy for users to consume and understand.
 <br>
-<br>
+
 - **CRUD Operations on Users & Thoughts:** The application supports API endpoints for POST, PUT, and DELETE operations on users and thoughts. Users can create new users and thoughts, update existing ones, and delete unwanted entries from the database.
 <br>
-<br>
+
 - **Reactions to Thoughts:** Users can also interact with thoughts by adding reactions to them. The application supports API endpoints for creating and deleting reactions, allowing users to express their feelings or opinions about specific thoughts.
 <br>
-<br>
+
 - **Manage Friends List:** Users can build their social circle by adding or removing friends. The application provides API endpoints for adding and removing friends from a user's friend list, enhancing the social experience and connectivity.
 <br>
-<br>
+
 Overall, the Social Network Web Application is designed to offer a seamless and interactive platform for users to connect, share thoughts, and engage with others in a meaningful way. By providing a comprehensive set of API endpoints, it enables users to perform a wide range of actions, making the social networking experience enjoyable and enriching.
 
 ## Table of Contents
